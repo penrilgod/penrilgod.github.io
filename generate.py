@@ -37,7 +37,7 @@ writer = Agent(
 current_time = datetime.datetime.now()
 date_str = current_time.strftime("%Y-%m-%d")
 file_name = f"{date_str}-ai-agent-blog.md"
-target_path = os.path.join("content", "posts", file_name)
+target_path = f"C:\\Users\\ersgo\\my-ai-blog\\content\\posts\\{file_name}"
 
 # 4. 태스크(Task) 정의
 research_task = Task(
