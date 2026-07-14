@@ -1,0 +1,7 @@
+baseURL = 'https://ersgod.github.io/'
+languageCode = 'ko-kr'
+title = 'AI Tech Log'
+theme = 'PaperMod'
+
+[minify]
+  minifyOutput = true
