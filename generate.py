@@ -36,7 +36,8 @@ writer = Agent(
 # 3. 오늘의 날짜와 저장 파일 경로 정의
 current_time = datetime.datetime.now()
 date_str = current_time.strftime("%Y-%m-%d")
-file_name = f"{date_str}-ai-agent-blog.md"
+time_str = current_time.strftime("%H%M")
+file_name = f"{date_str}-{time_str}-ai-agent-blog.md"
 target_path = f"C:\\Users\\ersgo\\my-ai-blog\\content\\posts\\{file_name}"
 
 # 4. 태스크(Task) 정의
