@@ -1,4 +1,4 @@
-baseURL = 'https://penrilgod.github.io/ersgod.github.io/'
+baseURL = 'https://penrilgod.github.io/'
 languageCode = 'ko-kr'
 title = 'AI Tech Log'
 theme = 'PaperMod'
