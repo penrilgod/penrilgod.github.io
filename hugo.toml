@@ -5,3 +5,6 @@ theme = 'PaperMod'
 
 [minify]
   minifyOutput = true
+  
+[params]
+  googleSiteVerification = "w08etOOxEqEnLYQWq47N4Z_2Acxs3sStCtgox0CgjGo"  
