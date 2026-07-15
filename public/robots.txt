@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://penrilgod.github.io/sitemap.xml
