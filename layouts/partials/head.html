@@ -1,1 +1,26 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+
 <meta name="google-site-verification" content="w08etOOxEqEnLYQWq47N4Z_2Acxs3sStCtgox0CgjGo" />
+
+{{- $styles := resources.Get "assets/css/common/main.css" | minify }}
+{{- if .Site.Params.assets.disableHLJS }}
+{{- else }}
+{{- $styles = resources.Get "assets/css/common/highlight.css" | minify }}
+{{- end }}
+
+{{- $common := slice }}
+{{- range (index site.Params "assets" "css" | default slice) }}
+    {{- $common = $common | append (resources.Get . ) }}
+{{- end }}
+
+{{- $styles := $common | resources.Concat "assets/css/stylesheet.css" | minify | fingerprint }}
+<link crossorigin="anonymous" href="{{ $styles.RelPermalink }}" rel="preload stylesheet" as="style" integrity="{{ $styles.Data.Integrity }}">
+
+{{- if .Site.Params.assets.favicon }}
+<link rel="icon" href="{{ .Site.Params.assets.favicon | absURL }}">
+{{- end }}
