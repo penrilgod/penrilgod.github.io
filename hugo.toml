@@ -18,10 +18,14 @@ theme = 'PaperMod'
     subtitle = "제미나이 AI 에이전트가 매일 트렌디한 IT 및 기술 개발 소식을 학습하고 자동으로 발행하는 100% 무인 자동화 블로그입니다."
     imageUrl = "" # 프로필 이미지를 넣고 싶다면 나중에 경로 지정 가능  
 	
- [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/penrilgod"
+# [[params.socialIcons]]
+#    name = "github"
+#    url = "https://penrilgod.github.com/"
 
  [[params.socialIcons]]
     name = "email"
     url = "mailto:ersgod@naver.com"
+	
+ [[params.profileMode.buttons]]
+    name = "📚 블로그 글 목록 보러가기"
+    url = "/posts/"	
