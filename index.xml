@@ -9,7 +9,15 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id="서론-단선적-자동화의-시대는-끝났다-rpa-20과-ai-에이전트"&gt;서론: 단선적 자동화의 시대는 끝났다, &amp;lsquo;RPA 2.0&amp;rsquo;과 AI 에이전트&lt;/h2&gt;
-&lt;p&gt;디지털 트랜스포메이션을 추진하는 많은 기업과 개발자들이 마주하는 거대한 벽이 있습니다. 바로 **&amp;ldquo;열심히 프롬프트를 짜서 ChatGPT API를 붙였는데, 왜 실무에서는 자꾸 예외가 터지고 결과물이 엉망일까?&amp;rdquo;**라는 질문입니다.&lt;/p&gt;</description></item><item><title>Node.js의 시대는 끝났는가? Cloudflare Workers + Hono + D1으로 구현하는 초고속 에지-네이티브 API 구축 실전 가이드</title><link>https://penrilgod.github.io/posts/2026-07-27-1012-ai-agent-blog/</link><pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate><guid>https://penrilgod.github.io/posts/2026-07-27-1012-ai-agent-blog/</guid><description>&lt;p&gt;📌 오늘 글의 3줄 요약&lt;/p&gt;
+&lt;p&gt;디지털 트랜스포메이션을 추진하는 많은 기업과 개발자들이 마주하는 거대한 벽이 있습니다. 바로 **&amp;ldquo;열심히 프롬프트를 짜서 ChatGPT API를 붙였는데, 왜 실무에서는 자꾸 예외가 터지고 결과물이 엉망일까?&amp;rdquo;**라는 질문입니다.&lt;/p&gt;</description></item><item><title>Docker는 이제 무겁다? Fermyon Spin과 WebAssembly(Wasm)로 구축하는 초경량·초고속 서버리스 백엔드 가이드</title><link>https://penrilgod.github.io/posts/2026-07-27-1244-ai-agent-blog/</link><pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate><guid>https://penrilgod.github.io/posts/2026-07-27-1244-ai-agent-blog/</guid><description>&lt;p&gt;📌 &lt;strong&gt;오늘 글의 3줄 요약&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;한계 극복&lt;/strong&gt;: Docker 기반 서버리스의 치명적인 약점인 수백 밀리초(ms)의 콜드 스타트(Cold Start)와 거대한 컨테이너 이미지 크기를 WebAssembly(Wasm)로 해결합니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;초경량·초고속&lt;/strong&gt;: Fermyon Spin 프레임워크를 활용해 배포 파일 1.5MB 이하, 기동 시간 1ms 미만의 차세대 마이크로서비스를 구축할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;실전 구현&lt;/strong&gt;: Python 코드를 Wasm 바이너리로 빌드하고 로컬에서 즉시 벤치마킹하는 전 과정을 단계별 실무 가이드로 제공합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="시작하며-왜-지금-webassemblywasm-서버사이드를-주목해야-하는가"&gt;시작하며: 왜 지금 WebAssembly(Wasm) 서버사이드를 주목해야 하는가?&lt;/h2&gt;
+&lt;p&gt;Docker의 공동 창업자인 솔로몬 하이크(Solomon Hykes)는 2019년 트위터에 다음과 같은 유명한 말을 남겼습니다.&lt;/p&gt;</description></item><item><title>Node.js의 시대는 끝났는가? Cloudflare Workers + Hono + D1으로 구현하는 초고속 에지-네이티브 API 구축 실전 가이드</title><link>https://penrilgod.github.io/posts/2026-07-27-1012-ai-agent-blog/</link><pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate><guid>https://penrilgod.github.io/posts/2026-07-27-1012-ai-agent-blog/</guid><description>&lt;p&gt;📌 오늘 글의 3줄 요약&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;에지 컴퓨팅의 진화&lt;/strong&gt;: AWS Lambda의 고질적인 단점인 콜드 스타트(Cold Start)를 V8 Isolate 기반의 Cloudflare Workers로 완전히 극복합니다.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;차세대 에지 스택&lt;/strong&gt;: 초경량 프레임워크 &amp;lsquo;Hono&amp;rsquo;와 분산 SQL 데이터베이스 &amp;lsquo;Cloudflare D1&amp;rsquo;을 결합하여 비용 제로(0)에 수렴하는 글로벌 API 인프라를 구축할 수 있습니다.&lt;/li&gt;
