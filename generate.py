@@ -76,7 +76,6 @@ draft: false
     expected_output='Hugo Front Matter, 3줄 요약, 다채로운 목차, 실전 파이썬 코드가 포함된 완벽한 기술 마크다운 텍스트',
     agent=writer
 )
-)
 
 # 5. 크루(Crew) 결성 및 실행
 blog_crew = Crew(
