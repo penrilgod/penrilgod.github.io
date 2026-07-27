@@ -42,8 +42,21 @@ target_path = f"C:\\Users\\ersgo\\my-ai-blog\\content\\posts\\{file_name}"
 
 # 4. 태스크(Task) 정의
 research_task = Task(
-    description='현재 개발자들에게 가장 유용하고 트렌디한 "Python을 활용한 업무 자동화 및 AI 연동 기술" 중 하나를 선정하여 핵심 개념과 선정 이유를 정리하라.',
-    expected_output='블로그 글의 주제가 될 핵심 키워드와 기술적 유용성이 정리된 분석 리포트',
+    description='''
+1. 아래 8가지 테크 카테고리 중 하나를 **무작위(Random)**로 선택하라:
+   - [A] 최신 AI 툴/서비스 비교 (예: Claude 3.5, Cursor, Perplexity, Midjourney 등)
+   - [B] 백엔드 & 클라우드 기술 (예: Docker, FastApi, AWS, Kubernetes, Serverless 등)
+   - [C] 데이터 분석 & SQL (예: Pandas, BigQuery, 데이터 시각화 팁 등)
+   - [D] 프론트엔드 & 웹 개발 (예: Next.js, React, Tailwind CSS 성능 최적화 등)
+   - [E] 개발자 생산성 툴 & Git (예: VSCode 확장프로그램, Git CLI 팁, 업무 자동화 등)
+   - [F] 보안 & 서버 관리 (예: API Key 보안, Linux 필수 명령어, SSH 등)
+   - [G] 데이터베이스 & ORM (예: PostgreSQL 성능 튜닝, Redis 캐싱 등)
+   - [H] 머신러닝 & 파이썬 기초 (예: Scikit-learn, 파이썬 문법 꿀팁 등)
+
+2. 위에서 선택한 카테고리에 맞춰, **'CrewAI'나 'Agent'라는 단어를 제외한** 완전히 새로운 트렌디한 IT/개발 주제 1개를 기획하라.
+3. 기획한 주제는 구체적인 기술 명칭과 활용 사례가 포함되어야 하며, 기존에 작성된 주제와 절대로 중복되지 않아야 한다.
+''',
+    expected_output='CrewAI가 아닌, 8가지 테크 카테고리 중 무작위로 선정된 신선하고 구체적인 IT/개발 주제 1개',
     agent=researcher
 )
 
