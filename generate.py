@@ -3,7 +3,7 @@ import datetime
 import random
 from dotenv import load_dotenv
 from crewai import Agent, Task, Crew
-from crewai_tools import BaseTool  # 필요시
+
 from litellm import completion  # LiteLLM 직접 사용 시
 # CrewAI 의 LLM 설정 방식에 따라 imports 는 달라질 수 있음
 from crewai import LLM  # CrewAI 최신 버전에 따라 다름
