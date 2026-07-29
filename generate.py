@@ -10,7 +10,7 @@ load_dotenv()
 os.environ["OPENAI_API_KEY"] = "fake-key-to-bypass-crewai-validation"
 
 # 무료 한도가 적용되는 기본 모델명 지정
-MODEL_NAME = "gemini/gemini-1.5-flash"
+MODEL_NAME = "gemini-1.5-flash"
 
 # 2. 에이전트(Agent) 정의 (max_rpm을 3으로 제한하여 429 차단 우회)
 researcher = Agent(
