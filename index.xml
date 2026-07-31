@@ -6,7 +6,15 @@
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;h2 id="1-들어가는-말-코딩coding에서-시스템-조율orchestration로의-패러다임-전환"&gt;1. 들어가는 말: 코딩(Coding)에서 시스템 조율(Orchestration)로의 패러다임 전환&lt;/h2&gt;
-&lt;p&gt;20년 동안 소프트웨어 아키텍처와 데이터 엔지니어링 생태계를 관찰해온 엔지니어 입장에서, 최근 1~2년 간의 AI 개발 도구 진화는 단순한 &amp;lsquo;생산성 향상&amp;rsquo;을 넘어 **&amp;lsquo;개발 패러다임의 근본적 격변&amp;rsquo;**을 의미합니다.&lt;/p&gt;</description></item><item><title>useMemo는 이제 그만: Next.js 15 PPR과 React Compiler가 이끄는 프론트엔드 성능 최적화의 미래</title><link>https://penrilgod.github.io/posts/2026-07-29-0954-ai-agent-blog/</link><pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate><guid>https://penrilgod.github.io/posts/2026-07-29-0954-ai-agent-blog/</guid><description>&lt;p&gt;📌 &lt;strong&gt;오늘 글의 3줄 요약&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;20년 동안 소프트웨어 아키텍처와 데이터 엔지니어링 생태계를 관찰해온 엔지니어 입장에서, 최근 1~2년 간의 AI 개발 도구 진화는 단순한 &amp;lsquo;생산성 향상&amp;rsquo;을 넘어 **&amp;lsquo;개발 패러다임의 근본적 격변&amp;rsquo;**을 의미합니다.&lt;/p&gt;</description></item><item><title>VS Code를 위협하는 Cursor IDE + Claude 3.5 Sonnet: 맥락(Context) 중심 차세대 개발 워크플로우 딥다이브</title><link>https://penrilgod.github.io/posts/2026-07-31-1345-ai-agent-blog/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate><guid>https://penrilgod.github.io/posts/2026-07-31-1345-ai-agent-blog/</guid><description>&lt;p&gt;📌 &lt;strong&gt;오늘 글의 3줄 요약&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;단일 라인 자동완성을 넘어 프로젝트 전체 코드베이스(Codebase)를 실시간 인덱싱하는 Cursor IDE의 핵심 메커니즘을 분석합니다.&lt;/li&gt;
+&lt;li&gt;현존 최고의 코딩 추론 모델인 Anthropic의 Claude 3.5 Sonnet과 &lt;code&gt;.cursorrules&lt;/code&gt; 커스텀 설정을 결합하여 개발 생산성을 300% 이상 끌어올리는 실무 전략을 공유합니다.&lt;/li&gt;
+&lt;li&gt;기존 VS Code + GitHub Copilot 조합과의 구체적인 성능/비용 비교 분석 및 파이썬 기반 코드베이스 인덱싱 모의 파이프라인 실전 코드를 제공합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="서론-코드-타이핑의-시대에서-맥락-지휘context-orchestration의-시대로"&gt;서론: 코드 타이핑의 시대에서 맥락 지휘(Context Orchestration)의 시대로&lt;/h2&gt;
+&lt;p&gt;소프트웨어 엔지니어링 20년 현장에서 제가 목격한 가작 큰 패러다임 전환은 개발 도구의 진화였습니다. VI와 Emacs에서 시작해 Eclipse, IntelliJ, 그리고 지난 수년간 시장을 지배해 온 VS Code에 이르기까지, IDE는 언제나 &amp;lsquo;개발자의 타이핑 효율을 어떻게 높일 것인가&amp;rsquo;에 집중해 왔습니다.&lt;/p&gt;</description></item><item><title>useMemo는 이제 그만: Next.js 15 PPR과 React Compiler가 이끄는 프론트엔드 성능 최적화의 미래</title><link>https://penrilgod.github.io/posts/2026-07-29-0954-ai-agent-blog/</link><pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate><guid>https://penrilgod.github.io/posts/2026-07-29-0954-ai-agent-blog/</guid><description>&lt;p&gt;📌 &lt;strong&gt;오늘 글의 3줄 요약&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;React Compiler&lt;/strong&gt;의 도입으로 &lt;code&gt;useMemo&lt;/code&gt;, &lt;code&gt;useCallback&lt;/code&gt;을 통한 불필요하고 오류 발생률이 높은 수동 메모이제이션 시대가 끝났습니다.&lt;/li&gt;
 &lt;li&gt;**Next.js 15 PPR(Partial Prerendering)**은 정적 셸(Static Shell)과 동적 스트리밍(Dynamic Streaming)을 단일 HTTP 요청으로 통합하여 TTFB와 LCP를 혁신적으로 단축합니다.&lt;/li&gt;
