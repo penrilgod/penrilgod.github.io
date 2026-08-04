@@ -1,24 +1,23 @@
 import os
 import datetime
 from dotenv import load_dotenv
-from crewai import Agent, Task, Crew
+from crewai import Agent, Task, Crew, LLM
 
 # 1. .env 파일 로드
 load_dotenv()
 
-# OpenAI 에러 우회용 더미 키
-os.environ["OPENAI_API_KEY"] = "fake-key-to-bypass-crewai-validation"
+# 🔑 Anaconda CrewAI 전용 Gemini LLM 설정
+llm = LLM(
+    model="gemini/gemini-3.5-flash",
+    api_key=os.getenv("GEMINI_API_KEY")
+)
 
-# 무료 한도가 적용되는 기본 모델명 지정
-MODEL_NAME = "gemini/gemini-flash-latest"
-
-# 2. 에이전트(Agent) 정의 (max_rpm을 3으로 제한하여 429 차단 우회)
+# 2. 에이전트(Agent) 정의
 researcher = Agent(
     role='테크 트렌드 분석가',
     goal='IT, AI, 최신 프로그래밍 기술 트렌드를 분석하여 블로그에 쓸 매력적인 주제를 선정한다.',
     backstory='당신은 글로벌 IT 기술 트렌드와 오픈소스 동향을 날카롭게 분석하는 10년 경력의 테크 분석가입니다. 대중적이면서도 영양가 있는 기술 키워드를 찾아내는 데 탁월합니다.',
-    llm=MODEL_NAME,
-    max_rpm=3,  # ◀ 초당 호출 제한을 피하기 위해 분당 3회만 호출하도록 제한
+    llm=llm,
     verbose=True
 )
 
@@ -28,17 +27,20 @@ writer = Agent(
     backstory='''당신은 20년 경력의 베테랑 데이터 엔지니어이자 시니어 개발자입니다. 
     단순한 개념 나열이 아닌, 반드시 실제 구동 가능한 파이썬(Python) 또는 C# 코드 블록을 포함하여 실무 예시를 깊이 있게 풀어냅니다.
     구글 SEO(검색엔진최적화)에 완벽히 부합하도록 서론, 본론(3가지 핵심 구조), 결론으로 명확히 나누어 작성하며, 독자에게 신뢰감을 주는 전문적인 어조를 사용합니다.''',
-    llm=MODEL_NAME,
-    max_rpm=3,  # ◀ 초당 호출 제한을 피하기 위해 분당 3회만 호출하도록 제한
+    llm=llm,
     verbose=True
 )
 
-# 3. 오늘의 날짜와 저장 파일 경로 정의
+# 3. 오늘의 날짜 및 저장 파일 경로 정의
 current_time = datetime.datetime.now()
-date_str = current_time.strftime("%Y-%m-%d")
-time_str = current_time.strftime("%H%M")
-file_name = f"{date_str}-{time_str}-ai-agent-blog.md"
-target_path = f"C:\\Users\\ersgo\\my-ai-blog\\content\\posts\\{file_name}"
+
+# Hugo Front Matter용 ISO 표준 날짜
+date_str = current_time.strftime("%Y-%m-%dT%H:%M:%S+09:00")
+
+# 윈도우 파일명용 날짜
+file_date_str = current_time.strftime("%Y-%m-%d-%H%M")
+file_name = f"{file_date_str}-ai-agent-blog.md"
+target_path = os.path.join(r"C:\Users\ersgo\my-ai-blog\content\posts", file_name)
 
 # 4. 태스크(Task) 정의
 research_task = Task(
@@ -61,7 +63,7 @@ research_task = Task(
 )
 
 write_task = Task(
-description='''테크 분석가가 선정한 주제를 바탕으로 완벽한 Hugo 마크다운(.md) 포맷의 블로그 글을 작성하라.
+    description='''테크 분석가가 선정한 주제를 바탕으로 완벽한 Hugo 마크다운(.md) 포맷의 블로그 글을 작성하라.
 
 반드시 다음 조건을 엄격히 충족해야 한다:
 

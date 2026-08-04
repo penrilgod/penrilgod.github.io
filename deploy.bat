@@ -1,11 +1,11 @@
 @echo off
+chcp 65001 > nul
 echo 🚀 1. AI 에이전트 가동 및 새로운 블로그 글 자동 생성...
 
-chcp 65001
+REM ✅ 파이썬 스크립트 실행 (anaconda3 환경 파이썬 사용)
+C:\Users\ersgo\anaconda3\python.exe generate.py
 
-py -3.12 generate.py
-
-REM ✅ 수정: python 실행 실패 시 에러코드 확인 후 종료
+REM ✅ 파이썬 실행 실패 시 에러코드 확인 후 종료
 if %errorlevel% neq 0 (
     echo ❌ 블로그 글 생성 실패! 빌드를 중단합니다.
     pause
@@ -22,7 +22,6 @@ if %errorlevel% neq 0 (
     pause
     exit /b 1
 )
-
 
 echo 📂 3. public 폴더 내 정적 파일들을 최상위로 이동 및 정렬...
 xcopy /E /Y public\* .
