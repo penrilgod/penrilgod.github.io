@@ -6,10 +6,15 @@ from crewai import Agent, Task, Crew, LLM
 # 1. .env 파일 로드
 load_dotenv()
 
-# 🔑 Anaconda CrewAI 전용 Gemini LLM 설정
+# 🔑 503 과부하 방지: 재시도(Retry) 및 대체 모델(Fallback) 설정
 llm = LLM(
     model="gemini/gemini-3.5-flash",
-    api_key=os.getenv("GEMINI_API_KEY")
+    api_key=os.getenv("GEMINI_API_KEY"),
+    num_retries=3,  # 일시적 503/네트워크 오류 시 최대 3회 재시도
+    fallbacks=[     # 1순위 실패 시 순차적으로 우회할 백업 모델 목록
+        "gemini/gemini-3.5-flash-lite",
+        "gemini/gemini-2.0-flash"
+    ]
 )
 
 # 2. 에이전트(Agent) 정의
