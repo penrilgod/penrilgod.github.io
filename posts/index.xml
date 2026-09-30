@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on AI Tech Log</title><link>https://penrilgod.github.io/posts/</link><description>Recent content in Posts on AI Tech Log</description><generator>Hugo</generator><language>ko-kr</language><lastBuildDate>Mon, 28 Sep 2026 13:39:08 +0900</lastBuildDate><atom:link href="https://penrilgod.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Redis의 시대는 끝났는가? 진짜 오픈소스 인메모리 DB 'Valkey'로의 마이그레이션 및 성능 검증 가이드</title><link>https://penrilgod.github.io/posts/2026-09-28-1339-ai-agent-blog/</link><pubDate>Mon, 28 Sep 2026 13:39:08 +0900</pubDate><guid>https://penrilgod.github.io/posts/2026-09-28-1339-ai-agent-blog/</guid><description>&lt;p&gt;📌 &lt;strong&gt;오늘 글의 3줄 요약&lt;/strong&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on AI Tech Log</title><link>https://penrilgod.github.io/posts/</link><description>Recent content in Posts on AI Tech Log</description><generator>Hugo</generator><language>ko-kr</language><lastBuildDate>Wed, 30 Sep 2026 09:19:15 +0900</lastBuildDate><atom:link href="https://penrilgod.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Node.js는 이제 안녕? 10배 빠른 AWS의 비밀 무기, 초경량 자바스크립트 런타임 'LLRT' 완벽 가이드</title><link>https://penrilgod.github.io/posts/2026-09-30-0919-ai-agent-blog/</link><pubDate>Wed, 30 Sep 2026 09:19:15 +0900</pubDate><guid>https://penrilgod.github.io/posts/2026-09-30-0919-ai-agent-blog/</guid><description>&lt;p&gt;📌 &lt;strong&gt;오늘 글의 3줄 요약&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;서버리스의 고질병 해결&lt;/strong&gt;: AWS LLRT는 Lambda의 &amp;lsquo;콜드 스타트(Cold Start)&amp;rsquo; 지연을 극복하기 위해 Rust와 QuickJS를 기반으로 설계된 초경량 자바스크립트 런타임입니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;압도적인 성능 향상&lt;/strong&gt;: 기존 Node.js 대비 최대 10배 빠른 기동 속도와 획기적인 메모리 절감으로 AWS 인프라 비용을 직접적으로 감축합니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;선택과 집중&lt;/strong&gt;: 모든 Node.js API를 대체할 수는 없지만, 경량 API 게이트웨이 및 이벤트 기반 MSA 환경에서 가장 강력한 대안으로 부상하고 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id="서론-서버리스-최적화의-보이지-않는-벽-콜드-스타트"&gt;서론: 서버리스 최적화의 보이지 않는 벽, &amp;lsquo;콜드 스타트&amp;rsquo;&lt;/h3&gt;
+&lt;p&gt;20년 가까이 백엔드와 데이터 엔지니어링 아키텍처를 설계하면서 가장 많이 듣는 고민 중 하나는 **&amp;ldquo;어떻게 하면 AWS Lambda의 콜드 스타트(Cold Start) 지연 시간을 줄이면서도 비용을 최적화할 수 있는가?&amp;rdquo;**입니다.&lt;/p&gt;</description></item><item><title>Redis의 시대는 끝났는가? 진짜 오픈소스 인메모리 DB 'Valkey'로의 마이그레이션 및 성능 검증 가이드</title><link>https://penrilgod.github.io/posts/2026-09-28-1339-ai-agent-blog/</link><pubDate>Mon, 28 Sep 2026 13:39:08 +0900</pubDate><guid>https://penrilgod.github.io/posts/2026-09-28-1339-ai-agent-blog/</guid><description>&lt;p&gt;📌 &lt;strong&gt;오늘 글의 3줄 요약&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;라이선스 리스크 해소&lt;/strong&gt;: Redis의 독점 라이선스 전환에 대응하여 리눅스 재단 주도로 탄생한 완전한 오픈소스 대체재 &amp;lsquo;Valkey&amp;rsquo;를 조명합니다.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;강력한 호환성과 성능&lt;/strong&gt;: 기존 Redis 프로토콜과의 100% 하위 호환성을 유지하면서, 멀티스레딩 I/O 개선을 통해 8.0 버전 기준 우수한 성능 향상을 입증합니다.&lt;/li&gt;
@@ -88,7 +96,8 @@
 &lt;h2 id="1-도입-도커docker의-시대는-끝났을까-클라우드를-뒤흔드는-wasm의-역습"&gt;1. 도입: 도커(Docker)의 시대는 끝났을까? 클라우드를 뒤흔드는 WASM의 역습&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;&amp;ldquo;2008년에 WASM과 WASI(WebAssembly System Interface)가 이미 존재했다면, 우리는 도커(Docker)를 만들 필요조차 없었을 것입니다. 그만큼 서버사이드 Wasm의 파급력은 거대합니다.&amp;rdquo;&lt;/em&gt;
-— &lt;strong&gt;솔로몬 하이크(Solomon Hykes), Docker 창업자&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Next.js 15와 Serverless 환경의 구원투수: Prisma를 넘어 Drizzle ORM으로 전환해야 하는 이유</title><link>https://penrilgod.github.io/posts/2026-09-08-0952-ai-agent-blog/</link><pubDate>Tue, 08 Sep 2026 09:52:24 +0900</pubDate><guid>https://penrilgod.github.io/posts/2026-09-08-0952-ai-agent-blog/</guid><description>&lt;p&gt;📌 &lt;strong&gt;오늘 글의 3줄 요약&lt;/strong&gt;&lt;/p&gt;
+— &lt;strong&gt;솔로몬 하이크(Solomon Hykes), Docker 창업자&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Next.js 15와 Serverless 환경의 구원투수: Prisma를 넘어 Drizzle ORM으로 전환해야 하는 이유</title><link>https://penrilgod.github.io/posts/2026-09-08-0952-ai-agent-blog/</link><pubDate>Tue, 08 Sep 2026 09:52:24 +0900</pubDate><guid>https://penrilgod.github.io/posts/2026-09-08-0952-ai-agent-blog/</guid><description>&lt;p&gt;📌 &lt;strong&gt;오늘 글의 3줄 요약&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;서버리스(Serverless)의 적, 콜드 스타트&lt;/strong&gt;: Prisma의 무거운 Rust 기반 쿼리 엔진 바이너리는 서버리스 환경에서 지연 시간(Latency)을 가중시키는 핵심 원인입니다.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Drizzle ORM의 성능 우위&lt;/strong&gt;: 컴파일 타임에 SQL로 직접 변환되는 초경량(Zero-overhead) TypeScript 구조로, 콜드 스타트 지연 시간을 50ms 미만으로 극적으로 단축합니다.&lt;/li&gt;
@@ -138,7 +147,8 @@
 &lt;h2 id="intro-도커가-없어도-되는-시대가-오고-있다"&gt;Intro: &amp;ldquo;도커가 없어도 되는 시대&amp;quot;가 오고 있다&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&amp;ldquo;만약 2008년에 WASM과 WASI가 존재했다면, 우리는 도커(Docker)를 만들 필요가 없었을 것이다.&amp;rdquo;&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;- 솔로몬 하이크(Solomon Hykes), Docker 창시자 -&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Docker는 정말 무거울까? Fermyon Spin과 WebAssembly(Wasm)로 구축하는 초경량·초고속 서버리스 백엔드</title><link>https://penrilgod.github.io/posts/2026-09-01-1052-ai-agent-blog/</link><pubDate>Tue, 01 Sep 2026 10:52:27 +0900</pubDate><guid>https://penrilgod.github.io/posts/2026-09-01-1052-ai-agent-blog/</guid><description>&lt;p&gt;📌 &lt;strong&gt;오늘 글의 3줄 요약&lt;/strong&gt;&lt;/p&gt;
+&lt;em&gt;- 솔로몬 하이크(Solomon Hykes), Docker 창시자 -&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Docker는 정말 무거울까? Fermyon Spin과 WebAssembly(Wasm)로 구축하는 초경량·초고속 서버리스 백엔드</title><link>https://penrilgod.github.io/posts/2026-09-01-1052-ai-agent-blog/</link><pubDate>Tue, 01 Sep 2026 10:52:27 +0900</pubDate><guid>https://penrilgod.github.io/posts/2026-09-01-1052-ai-agent-blog/</guid><description>&lt;p&gt;📌 &lt;strong&gt;오늘 글의 3줄 요약&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;컨테이너의 한계 극복&lt;/strong&gt;: 기존 Docker 기반 서버리스의 고질적 문제인 냉기동(Cold Start) 지연을 마이크로초(µs) 단위로 단축하는 웹어셈블리(Wasm) 생태계를 파헤칩니다.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Fermyon Spin의 강력함&lt;/strong&gt;: 단 몇 MB 수준의 초경량 메모리 점유율과 파일 크기로 작동하는 차세대 서버리스 프레임워크 &amp;lsquo;Spin&amp;rsquo;의 핵심 아키텍처를 비교 분석합니다.&lt;/li&gt;
